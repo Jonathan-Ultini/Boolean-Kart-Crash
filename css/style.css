@@ -1,0 +1,15 @@
+/* # Regole generiche */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	padding-top: 16px;
+	font-family: 'ruddy', sans-serif;
+	line-height: 1;
+	color: #001732;
+	touch-action: manipulation;
+}
