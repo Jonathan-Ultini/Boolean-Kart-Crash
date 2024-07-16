@@ -25,9 +25,137 @@
 
 </head>
 
-<body>
-  <!-- JavaScript -->
-  <script src="script.js"></script>
+<body class="">
+
+  <div class="game-container">
+
+    <!-- Logo -->
+    <header>
+      <img src="img/logo.png" alt="logo">
+    </header>
+
+    <!-- Pannello informazioni di gioco -->
+    <div class="game-panel">
+      <!-- Punteggio -->
+      <div class="score">
+        <span class="score-label">SCORE</span>
+        <span class="score-counter">0</span>
+      </div>
+
+
+      <!-- Tabellone di gioco -->
+      <div class="game-board">
+        <div class="street">
+          <div class="grid">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell grass"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell cones"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell fence"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell rock"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell fence"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell grass"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell water"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell cones"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell water"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell kart"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell rock"></div>
+            <div class="cell"></div>
+          </div>
+        </div>
+
+
+
+        <!-- Pannello di controllo -->
+        <div class="driving-panel">
+          <button class="left-button">
+            <img src="img/left-arrow.png" alt="left arrow">
+          </button>
+          <button class="right-button">
+            <img src="img/right-arrow.png" alt="right arrow"></img>
+          </button>
+        </div>
+
+
+        <!-- Schermata di fine gioco -->
+        <div class="end-game-screen hidden">
+          <h2 class="end-game-text">Game Over</h2>
+          <div class="score">SCORE: <span class="final-score">0</span></div>
+          <div class="cta">
+
+            <img class="character" src="images/kart-endcard.png" alt="character on kart">
+            <button class="play-again">Gioca ancora</button>
+            <a class="button learn-code" href="https://boolean.careers/fundamentals-camp/full-stack-web-development"
+              target="_blank">Impara a programmare</a>
+
+            <!-- Instagram cta -->
+            <div class="instagram-cta">
+              <div class="logo">
+                <img src="img/instagram.svg" alt="Instagram logo">
+              </div>
+              <div class="text">
+                <strong>Fai uno screenshot e taggaci su Instagram</strong>
+                @boolean.careers
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+
+      <!-- JavaScript -->
+      <script src="script.js"></script>
 </body>
 
 </html>

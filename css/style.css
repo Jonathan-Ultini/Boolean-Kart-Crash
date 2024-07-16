@@ -13,3 +13,317 @@ body {
 	color: #001732;
 	touch-action: manipulation;
 }
+
+
+/* # Intestazione e Logo */
+
+header {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+header img {
+	width: 112px;
+	height: 72px;
+}
+
+
+
+/* # Pannello di gioco */
+
+.game-container {
+	margin: auto;
+	width: 340px;
+	touch-action: manipulation;
+}
+
+.game-panel {
+	position: relative;
+}
+
+
+
+/* # Punteggio  */
+
+.score {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 10px;
+	background-color: #d9ff66;
+	border-radius: 25px;
+	padding: 5px 30px;
+	box-shadow: 0 5px #bee15a;
+}
+
+.score-label {
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 28px;
+	color: #5d7394;
+}
+
+.score-counter {
+	font-size: 24px;
+	line-height: 28px;
+}
+
+
+/* # Griglia di gioco */
+
+.street {
+	background-image: url(../img/background.png);
+	border-radius: 20px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding: 0 30px;
+}
+
+.grid {
+	width: calc(40px * 7);
+	height: calc(40px * 9);
+	display: flex;
+	flex-wrap: wrap;
+	align-content: flex-start;
+}
+
+.cell {
+	height: 40px;
+	width: 40px;
+	cursor: pointer;
+
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 95%;
+}
+
+.debug .cell {
+	border: 1px dashed black;
+}
+
+
+/* # Ostacoli */
+
+.rock {
+	background-image: url('../img/rock.png');
+}
+
+.grass {
+	background-image: url('../img/grass.png');
+}
+
+.fence {
+	background-image: url('../img/fence.png');
+}
+
+.kart {
+	background-image: url('../img/kart.png');
+}
+
+.cones {
+	background-image: url('../img/cones.png');
+}
+
+.water {
+	background-image: url('../img/water.png');
+}
+
+.coin {
+	background-image: url('../img/coin.gif');
+}
+
+
+
+/* # Pannello di guida */
+
+.driving-panel {
+	height: 96px;
+	padding: 0 20px;
+	padding-top: 20px;
+	display: flex;
+	gap: 15px;
+	justify-content: space-between;
+}
+
+button,
+a.button {
+	padding: 10px 15px;
+	font-size: 18px;
+	text-transform: uppercase;
+	text-align: center;
+	cursor: pointer;
+	outline: none;
+	border: none;
+	letter-spacing: 1.02px;
+	text-decoration: none;
+	color: #fff;
+	font-family: 'ruddy', sans-serif;
+	background-color: #4c64f2;
+	background-image: linear-gradient(to bottom, #2e45cc, #4c64f2);
+	border-radius: 16px;
+	box-shadow: inset 0 -3px rgba(255, 255, 255, 0.5), 0 12px #172ba1;
+	transition: all 0.1s ease;
+	touch-action: manipulation;
+}
+
+.driving-panel button {
+	width: 80px;
+	height: calc(100% - 10px); /* compensazione ombra */
+}
+
+button:hover,
+a.button:hover {
+	background-image: linear-gradient(to bottom, #4c64f2, #7ca4f3);
+}
+
+button:active,
+a.button:active {
+	box-shadow: inset 0 -3px rgba(255, 255, 255, 0.5), 0 4px #172ba1;
+	transform: translateY(8px);
+}
+
+.driving-panel button img {
+	width: 90%;
+}
+
+
+
+/* # Schermata di fine gioco */
+
+.end-game-screen {
+	padding: 16px;
+	border-radius: 15px;
+	text-align: center;
+	text-transform: uppercase;
+	background-color: #d9ff66;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: -10px; /* compensazione ombra tasti */
+}
+
+.end-game-text {
+	font-size: 32px;
+	line-height: 40px;
+	background: linear-gradient(to bottom, #0d1c73, #4c64f2);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
+	margin-bottom: 10px;
+}
+
+.end-game-screen .score {
+	font-size: 20px;
+	line-height: 32px;
+	padding: 0 16px;
+	height: 64px;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	color: #5d7394;
+	border-radius: 10px;
+	background-color: white;
+	box-shadow: 0 10px #bee15a;
+}
+
+.final-score {
+	font-size: 48px;
+	line-height: 56px;
+	color: #0d1c73;
+	font-family: 'ruddy', sans-serif;
+	font-weight: 700;
+}
+
+.character {
+	height: 190px;
+	width: auto;
+	margin-bottom: 9px;
+}
+
+.cta {
+	position: relative;
+	top: -35px;
+}
+
+.learn-code,
+.end-game-screen button {
+	display: block;
+	width: 100%;
+	align-content: center;
+
+	margin-bottom: 24px;
+	height: calc(56px - 10px); /*compensazione ombra */
+}
+
+.instagram-cta {
+	margin-top: 30px;
+	height: 44px;
+	border-radius: 15px;
+	background-color: #ecffb3;
+
+	line-height: 18px;
+	font-size: 12px;
+	font-family: Inter, sans-serif;
+	text-transform: none;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	overflow: hidden;
+}
+
+.instagram-cta .logo {
+	flex-basis: 40px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	background-image: linear-gradient(to top, #fed11f, #ff543e, #cb37ab);
+}
+
+.instagram-cta img {
+	width: 60%;
+	height: auto;
+}
+
+.hidden {
+	display: none;
+}
+
+
+/* # BONUS */
+.score-counter {
+	font-size: 24px;
+	line-height: 28px;
+	color: #0d1c73;
+	font-weight: 700;
+	position: relative;
+}
+
+.score-counter.bonus::after {
+	content: '+30';
+	color: #3ca98f;
+	position: absolute;
+	font-size: 18px;
+	line-height: 24px;
+	top: 0;
+	right: 0;
+	opacity: 0;
+	animation: bonus 1s ease;
+}
+
+@keyframes bonus {
+	from {
+		top: 0;
+		opacity: 0;
+	}
+	to {
+		top: -20px;
+		opacity: 1;
+	}
+}
