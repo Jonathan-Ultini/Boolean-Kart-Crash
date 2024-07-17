@@ -1,4 +1,4 @@
-/* # Regole generiche */
+/* #: Regole generiche */
 
 * {
 	margin: 0;
@@ -15,7 +15,7 @@ body {
 }
 
 
-/* # Intestazione e Logo */
+/* #: Intestazione e Logo */
 
 header {
 	text-align: center;
@@ -29,7 +29,7 @@ header img {
 
 
 
-/* # Pannello di gioco */
+/* #: Pannello di gioco */
 
 .game-container {
 	margin: auto;
@@ -43,7 +43,7 @@ header img {
 
 
 
-/* # Punteggio  */
+/* #: Punteggio  */
 
 .score {
 	display: flex;
@@ -69,7 +69,7 @@ header img {
 }
 
 
-/* # Griglia di gioco */
+/* #: Griglia di gioco */
 
 .street {
 	background-image: url(../img/background.png);
@@ -102,7 +102,7 @@ header img {
 }
 
 
-/* # Ostacoli */
+/* #: Ostacoli */
 
 .rock {
 	background-image: url('../img/rock.png');
@@ -134,7 +134,7 @@ header img {
 
 
 
-/* # Pannello di guida */
+/* #: Pannello di guida */
 
 .driving-panel {
 	height: 96px;
@@ -188,7 +188,7 @@ a.button:active {
 
 
 
-/* # Schermata di fine gioco */
+/* #: Schermata di fine gioco */
 
 .end-game-screen {
 	padding: 16px;
@@ -296,7 +296,7 @@ a.button:active {
 }
 
 
-/* # BONUS */
+/* #: BONUS */
 .score-counter {
 	font-size: 24px;
 	line-height: 28px;
