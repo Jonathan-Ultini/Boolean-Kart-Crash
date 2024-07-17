@@ -106,8 +106,14 @@ function scroolObstacles() {
   // Rimuoviamo temporaneamente il kart
   gridMatrix[kartPosition.y][kartPosition.x] = '';
 
+  // controllo se c'è una moneta in gioco
+  const isCoinInGame = lookForCoin();
+
   // Recuperiamo l'ultima riga e la mettiamo da parte
   let lastRow = gridMatrix.pop();
+
+  // Inseriamo una monetina nella riga se non ci sono in gioco
+  if (!isCoinInGame) lastRow = insertCoin(lastRow);
 
   // Mescoliamo casualmente gli elementi della riga
   lastRow = shuffleElements(lastRow);
@@ -188,6 +194,34 @@ function getBonusPoints() {
   setTimeout(function () {
     scoreCounter.classList.remove('bonus');
   }, 1000)
+}
+
+
+// Funzione per inserire un coin all'interno di una riga
+function insertCoin(row) {
+  // Individuiamo l'indice del primo elemento vuoto
+  const emptyIndex = row.indexOf('');
+
+  // Inseriamo un coin in quella posizione
+  row[emptyIndex] = 'coin';
+
+  // Restituire la riga aggiornata (con il coin)
+  return row;
+}
+
+
+// Funzione per sapere se c'è un coin in giro
+function lookForCoin() {
+  // Creo un flag
+  let coinFound = false;
+
+  // Recupero tutte le righe
+  gridMatrix.forEach(function (row) {
+    // Per ogni riga controllo se c'è un coin
+    if (row.includes('coin')) coinFound = true;
+  });
+
+  return coinFound;
 }
 
 
