@@ -47,7 +47,7 @@ function renderGrid() {
 
 
 //funzione che raggruppa le operazioni di rendering
-function renderElemets(){
+function renderElements(){
   //posiziono il kart
   placeKart();
 
@@ -82,9 +82,43 @@ function moveKart(direction){
   }
 
   //reinderizzare tutti gli elementi
-  renderElemets();
+  renderElements();
 }
 
+// Funzione per mescolare gli elementi di una riga
+
+
+
+//#:FUNZIONI RELATIVE AGLI OSTACOLI
+// Funzione per far scorrere gli ostacoli
+function scroolObstacles(){
+  // Rimuoviamo temporaneamente il kart
+  gridMatrix[kartPosition.y][kartPosition.x] = '';
+
+  // Recuperiamo l'ultima riga e la mettiamo da parte
+  let lastRow = gridMatrix.pop();
+
+  // Mescoliamo casualmente gli elementi della riga
+  // lastRow = shuffleElements(lastRow);
+
+  // Riporto la riga in cima
+  gridMatrix.unshift(lastRow);
+
+  // Rirenderizziamo tutto
+  renderElements();
+}
+
+
+//Funzione per mescolare gli elementi di una riga
+function shuffleElements(row){
+  // Algoritmo di Fisher-Yates
+  for (let i = row.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [row[i], row[j]] = [row[j], row[i]];
+  }
+
+  return row;
+}
 
 // #: EVENTI DEL GIOCO
 //click sul bottone di sinistra
@@ -112,5 +146,5 @@ document.addEventListener('keyup' , function(e){
  
 
 //#:ESECUZIONE DELLE FUNZIONI DI GIOCO
-//reinderizza tutti gli elementi
-renderElemets();
+// Scrollo automaticamente gli ostacoli
+setInterval(scroolObstacles, 1000);
