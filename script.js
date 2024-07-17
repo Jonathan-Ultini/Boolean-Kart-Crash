@@ -64,7 +64,52 @@ function placeKart(){
   gridMatrix[kartPosition.y][kartPosition.x] = 'kart';
 } 
 
+//Funzione per muovere il kart
+function moveKart(direction){
+  //solleviamo il kart per spostarlo da un'altra parte
+  gridMatrix[kartPosition.y][kartPosition.x] = '';
 
+  //aggiorniamo le coordinate a seconda della direzione
+  switch(direction){
+    case 'left':
+      if(kartPosition.x > 0) kartPosition.x--;
+      break;
+    case 'right':
+      if(kartPosition.x < 6) kartPosition.x++;
+      break;
+    default:
+      gridMatrix[kartPosition.y][kartPosition.x] = 'kart';
+  }
+
+  //reinderizzare tutti gli elementi
+  renderElemets();
+}
+
+
+// #: EVENTI DEL GIOCO
+//click sul bottone di sinistra
+leftButton.addEventListener('click' , function(){
+  moveKart('left');
+});
+
+//click sul bottone di destra
+rightButton.addEventListener('click' , function(){
+  moveKart('right');
+});
+
+//reazione alle freccette
+document.addEventListener('keyup' , function(e){
+  switch(e.key) {
+    case 'ArrowLeft':
+      moveKart('left');
+      break;
+    case 'ArrowRight':
+      moveKart('right');
+      break;
+    default: return;
+  }
+})
+ 
 
 //#:ESECUZIONE DELLE FUNZIONI DI GIOCO
 //reinderizza tutti gli elementi
