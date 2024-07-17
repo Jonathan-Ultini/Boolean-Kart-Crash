@@ -3,7 +3,11 @@
 const grid = document.querySelector('.grid');
 const leftButton = document.querySelector('.left-button');
 const rightButton = document.querySelector('.right-button');
-const scoreCounter = document.querySelector('.score-counter')
+const scoreCounter = document.querySelector('.score-counter');
+const EndGameScreen = document.querySelector('.end-game-screen');
+const finalScore = document.querySelector('.final-score');
+const playAgainButton = document.querySelector('.play-again');
+
 
 // Prepariamo la griglia iniziale
 const gridMatrix = [
@@ -63,7 +67,13 @@ function renderElements(){
 //#:FUNZIONI RELATIVE AL KART
 //funzione per posizionare il kart
 function placeKart(){
-  //inserisco la classe cart, nella cella corrispondente alle coordinate di kartPosition
+  // Recuperiamo il valore della cella in cui dobbiamo posizionare il kart
+  const contentBeforeKart = gridMatrix[kartPosition.y][kartPosition.x];
+
+  // Se c'è qualcosa allora è collisione
+  if(contentBeforeKart) gameOver();
+
+  // inserisco la classe cart, nella cella corrispondente alle coordinate di kartPosition
   gridMatrix[kartPosition.y][kartPosition.x] = 'kart';
 } 
 
@@ -88,9 +98,6 @@ function moveKart(direction){
   renderElements();
 }
 
-// Funzione per mescolare gli elementi di una riga
-
-
 
 //#:FUNZIONI RELATIVE AGLI OSTACOLI
 // Funzione per far scorrere gli ostacoli
@@ -102,7 +109,7 @@ function scroolObstacles(){
   let lastRow = gridMatrix.pop();
 
   // Mescoliamo casualmente gli elementi della riga
-  // lastRow = shuffleElements(lastRow);
+  lastRow = shuffleElements(lastRow);
 
   // Riporto la riga in cima
   gridMatrix.unshift(lastRow);
@@ -122,6 +129,23 @@ function shuffleElements(row){
 
   return row;
 }
+
+
+//#: FUNZIONE DI FINE PARTITA
+function gameOver(){
+  // interrompo il flusso di gioco
+  clearInterval(gameLoop);
+
+  //inserisco il punteggio
+  finalScore.innerText = score;
+
+  // Rivelo l'immagiine di game over
+  EndGameScreen.classList.remove('hidden');
+
+  // Porto il focus sul tasto gioca ancora
+  playAgainButton.focus();
+}
+
 
 
 //#: FUNZIONI RELATIVE AI PUNTI E ALLA VELOCITÀ
@@ -160,6 +184,11 @@ function runGameFlow(){
 
 
 // #: EVENTI DEL GIOCO
+//click sul bottone di sinistra
+playAgainButton.addEventListener('click' , function(){
+  location.reload();
+});
+
 //click sul bottone di sinistra
 leftButton.addEventListener('click' , function(){
   moveKart('left');
