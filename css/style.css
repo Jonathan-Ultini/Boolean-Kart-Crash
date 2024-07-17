@@ -168,7 +168,8 @@ a.button {
 
 .driving-panel button {
 	width: 80px;
-	height: calc(100% - 10px); /* compensazione ombra */
+	height: calc(100% - 10px);
+	/* compensazione ombra */
 }
 
 button:hover,
@@ -187,6 +188,14 @@ a.button:active {
 }
 
 
+.turbo {
+	flex-grow: 1;
+}
+
+.turbo img {
+	width: 100%;
+}
+
 
 /* #: Schermata di fine gioco */
 
@@ -201,7 +210,8 @@ a.button:active {
 	top: 0;
 	left: 0;
 	right: 0;
-	bottom: -10px; /* compensazione ombra tasti */
+	bottom: -10px;
+	/* compensazione ombra tasti */
 }
 
 .end-game-text {
@@ -257,7 +267,8 @@ a.button:active {
 	align-content: center;
 
 	margin-bottom: 24px;
-	height: calc(56px - 10px); /*compensazione ombra */
+	height: calc(56px - 10px);
+	/*compensazione ombra */
 }
 
 .instagram-cta {
@@ -322,6 +333,7 @@ a.button:active {
 		top: 0;
 		opacity: 0;
 	}
+
 	to {
 		top: -20px;
 		opacity: 1;

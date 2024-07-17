@@ -7,6 +7,7 @@ const scoreCounter = document.querySelector('.score-counter');
 const EndGameScreen = document.querySelector('.end-game-screen');
 const finalScore = document.querySelector('.final-score');
 const playAgainButton = document.querySelector('.play-again');
+const turboButton = document.querySelector('.turbo');
 
 
 // Prepariamo la griglia iniziale
@@ -27,6 +28,7 @@ const gridMatrix = [
 const kartPosition = { y: 7, x: 3 };
 let score = 0;
 let speed = 1000;
+let turbo = 1;
 
 // #:FUNZIONI RELATIVE ALLA GRIGLIA
 //funzione per reinderizzare la griglia
@@ -230,12 +232,21 @@ function lookForCoin() {
 function runGameFlow() {
   // Aumentare il punteggio
   incrementScore();
-  // Aumentare la velocità
-  if (score % 10 === 0) incrementSpeed();
+
   // Far scorrere gli ostacoli
   scroolObstacles();
 }
 
+
+// Funzione del turbo
+function turboBoost() {
+  if (turbo < 4) {
+    // Incrementiamo il turboo e mostriamo la lancetta giusta
+    turboButton.innerHTML = `<img src="img/gauge-${++turbo}.png" alt="turbo">`
+
+    incrementSpeed();
+  }
+}
 
 
 // #: EVENTI DEL GIOCO
@@ -254,7 +265,11 @@ rightButton.addEventListener('click', function () {
   moveKart('right');
 });
 
-//reazione alle freccette
+//click sul bottone centrale
+turboButton.addEventListener('click', turboBoost);
+
+
+//controlli con la tastiera
 document.addEventListener('keyup', function (e) {
   switch (e.key) {
     case 'ArrowLeft':
@@ -262,6 +277,9 @@ document.addEventListener('keyup', function (e) {
       break;
     case 'ArrowRight':
       moveKart('right');
+      break;
+    case ' ':
+      turboBoost();
       break;
     default: return;
   }
