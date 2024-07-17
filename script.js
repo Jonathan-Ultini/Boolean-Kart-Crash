@@ -3,6 +3,7 @@
 const grid = document.querySelector('.grid');
 const leftButton = document.querySelector('.left-button');
 const rightButton = document.querySelector('.right-button');
+const scoreCounter = document.querySelector('.score-counter')
 
 // Prepariamo la griglia iniziale
 const gridMatrix = [
@@ -20,6 +21,8 @@ const gridMatrix = [
 
 // impostazioni iniziali
 const kartPosition = { y: 7, x: 3};
+let score = 0;
+let speed = 1000;
 
 // #:FUNZIONI RELATIVE ALLA GRIGLIA
 //funzione per reinderizzare la griglia
@@ -120,6 +123,42 @@ function shuffleElements(row){
   return row;
 }
 
+
+//#: FUNZIONI RELATIVE AI PUNTI E ALLA VELOCITÀ
+// Funzione che incrementa il punteggio
+function incrementScore() {
+  // Aumento il punteggio di 1 e lo inserisco in pagina
+  scoreCounter.innerText = ++score;
+}
+
+// Funzione che incrementa la velocità
+function incrementSpeed() {
+  // Se non siamo già troppo veloci
+  if(speed > 100){
+    // Interrompo il flusso attuale
+    clearInterval(gameLoop);
+  
+    // Decremento intervallo (aumentando così la velocità)
+    speed -= 100;
+  
+    // Rilanciamoo un nuovo flusso con la velocità aggiornata
+    gameLoop = setInterval(runGameFlow, speed);
+  }
+}
+
+//#: FUNZIONI RELATIVE AL FLUSSO DI GIOCO
+// Funzione che raggruppa le operazioni da ripetere ciclicamente
+function runGameFlow(){
+  // Aumentare il punteggio
+  incrementScore();
+  // Aumentare la velocità
+  if(score % 10 === 0) incrementSpeed();
+  // Far scorrere gli ostacoli
+  scroolObstacles();
+}
+
+
+
 // #: EVENTI DEL GIOCO
 //click sul bottone di sinistra
 leftButton.addEventListener('click' , function(){
@@ -147,4 +186,4 @@ document.addEventListener('keyup' , function(e){
 
 //#:ESECUZIONE DELLE FUNZIONI DI GIOCO
 // Scrollo automaticamente gli ostacoli
-setInterval(scroolObstacles, 1000);
+let gameLoop = setInterval(runGameFlow, speed);
